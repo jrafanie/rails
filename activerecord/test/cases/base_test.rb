@@ -1430,6 +1430,15 @@ class BasicsTest < ActiveRecord::TestCase
     assert_equal 1, post.comments.length
   end
 
+  def test_strings_quoted
+    post = Post.new
+    h = {:a => {:b => "c"}}
+    post.body = h  # text
+    post.type = h  # string
+    assert_equal "{:a=>{:b=>\"c\"}}", post.body
+    assert_equal "{:a=>{:b=>\"c\"}}", post.type
+  end
+
   if Process.respond_to?(:fork) && !in_memory_db?
     def test_marshal_between_processes
       # Define a new model to ensure there are no caches
