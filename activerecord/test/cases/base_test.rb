@@ -2123,6 +2123,15 @@ class BasicsTest < ActiveRecord::TestCase
     Object.class_eval{ remove_const :UnloadablePost } if defined?(UnloadablePost)
   end
 
+  def test_strings_quoted
+    post = Post.new
+    h = {:a => {:b => "c"}}
+    post.body = h  # text
+    post.type = h  # string
+    assert_equal "{:a=>{:b=>\"c\"}}", post.body
+    assert_equal "{:a=>{:b=>\"c\"}}", post.type
+  end
+
   def test_marshal_round_trip
     if ENV['TRAVIS'] && RUBY_VERSION == "1.8.7"
       return skip("Marshalling tests disabled for Ruby 1.8.7 on Travis CI due to what appears " \
