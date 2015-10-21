@@ -13,7 +13,7 @@ module ActionDispatch
         def initialize(strexp)
           @spec         = strexp.ast
           @requirements = strexp.requirements
-          @separators   = strexp.separators.join
+          @separators   = ActionDispatch::Routing::SEPARATORS_JOINED
           @anchored     = strexp.anchor
 
           @names          = nil
