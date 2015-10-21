@@ -174,7 +174,7 @@ end
 # reduce 14 omitted
 
 def _reduce_15(val, _values)
- Slash.new('/')
+ Slash.new('/'.freeze)
 end
 
 def _reduce_16(val, _values)
