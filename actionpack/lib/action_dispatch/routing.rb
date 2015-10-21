@@ -256,6 +256,7 @@ module ActionDispatch
     autoload :PolymorphicRoutes
 
     SEPARATORS = %w( / . ? ) #:nodoc:
+    SEPARATORS_JOINED = SEPARATORS.join.freeze #:nodoc:
     HTTP_METHODS = [:get, :head, :post, :patch, :put, :delete, :options] #:nodoc:
   end
 end
