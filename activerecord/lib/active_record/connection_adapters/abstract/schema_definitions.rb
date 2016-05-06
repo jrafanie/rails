@@ -129,7 +129,7 @@ module ActiveRecord
       def columns
         result = [[column_name, type, options]]
         if polymorphic
-          result.unshift(["#{name}_type", :string, polymorphic_options])
+          result << ["#{name}_type", :string, polymorphic_options]
         end
         result
       end
