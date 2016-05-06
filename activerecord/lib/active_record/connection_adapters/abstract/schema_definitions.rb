@@ -131,6 +131,8 @@ module ActiveRecord
         if polymorphic
           result << ["#{name}_type", :string, polymorphic_options]
         end
+
+        puts result.inspect
         result
       end
 
